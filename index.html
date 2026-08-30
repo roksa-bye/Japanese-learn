@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nihongo Tabi — Belajar Hiragana, Katakana, Kanji & Romaji Gratis</title>
+<meta name="description" content="Belajar bahasa Jepang online gratis: Hiragana, Katakana, Kanji, dan Romaji lewat tutorial singkat dan kuis bergaya stage seperti Duolingo. Cocok untuk pemula.">
+<meta name="keywords" content="belajar bahasa jepang, hiragana, katakana, kanji, romaji, belajar huruf jepang, kuis bahasa jepang">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://roksa-bye.github.io/Japanese-learn/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nihongo Tabi — Belajar Bahasa Jepang Gratis">
+<meta property="og:description" content="Belajar Hiragana, Katakana, Kanji, dan Romaji lewat tutorial singkat dan kuis bergaya stage. Gratis dan bisa diulang kapan saja.">
+<meta property="og:url" content="https://roksa-bye.github.io/Japanese-learn/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nihongo Tabi — Belajar Bahasa Jepang Gratis">
+<meta name="twitter:description" content="Belajar Hiragana, Katakana, Kanji, dan Romaji lewat tutorial singkat dan kuis bergaya stage.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-shell" id="appShell">
+
+  <div id="dailyToast" class="daily-toast"></div>
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="hint-counter" title="Hint"><span>💡</span> <span id="hintCount">0</span></div>
+      <div class="point-counter" title="Poin"><span>⭐</span> <span id="pointCount">0</span></div>
+    </div>
+    <button id="menuToggle" class="hamburger" aria-label="Buka menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div id="stageBadge" class="stage-badge"><span id="stageBadgeLabel">Stage</span> <b id="stageNum">1</b> &nbsp;•&nbsp; <span id="stageBadgeSoal">Soal</span> <span id="qNum">1</span>/10</div>
+
+  <nav id="sidebar" class="sidebar" aria-label="Menu navigasi">
+    <h3 id="sidebarMenuTitle">Menu</h3>
+    <ul>
+      <li><button data-nav="home"><span class="jp-mini">家</span> <span id="navHomeLabel">Home</span></button></li>
+      <li><button data-nav="hiragana"><span class="jp-mini">あ</span> Hiragana</button></li>
+      <li><button data-nav="katakana"><span class="jp-mini">ア</span> Katakana</button></li>
+      <li><button data-nav="kanji"><span class="jp-mini">漢</span> Kanji</button></li>
+      <li><button data-nav="romaji"><span class="jp-mini">Aa</span> Romaji</button></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <ul>
+      <li><button id="btnSwitchLang"><span class="jp-mini">🌐</span> <span id="switchLangLabel">Bahasa: Indonesia</span></button></li>
+      <li><button id="btnResetProgress" class="danger-item"><span class="jp-mini">✕</span> <span id="resetProgressLabel">Reset Progress</span></button></li>
+    </ul>
+  </nav>
+  <div id="overlay" class="overlay"></div>
+
+  <main id="viewport">
+
+    <section id="view-lang-select" class="view active">
+      <div class="landing">
+        <div class="hanko">語</div>
+        <h1 style="font-size:1.7rem;">Pilih Bahasa<br>Choose Your Language</h1>
+        <p class="sub">Pilih bahasa yang ingin kamu pakai di aplikasi ini.<br>Choose the language you want to use in this app.</p>
+        <div class="ui-lang-grid">
+          <button class="ui-lang-card" data-set-lang="id">
+            <span class="flag">🇮🇩</span>
+            <span class="name">Bahasa Indonesia</span>
+          </button>
+          <button class="ui-lang-card" data-set-lang="en">
+            <span class="flag">🇬🇧</span>
+            <span class="name">English</span>
+          </button>
+        </div>
+        <p class="tiny-note" style="margin-top:6px;">Bisa diganti kapan saja lewat menu. / Can be changed anytime via the menu.</p>
+      </div>
+    </section>
+
+    <section id="view-landing" class="view">
+      <div class="landing">
+        <div class="hanko">学</div>
+        <span class="eyebrow">Nihongo Tabi</span>
+        <h1><span id="landingTitlePre">Belajar</span> <span class="jp">日本語</span><br><span id="landingTitlePost">Bahasa Jepang, Selangkah Demi Selangkah</span></h1>
+        <p class="sub" id="landingSub">Kenali Hiragana, Katakana, Kanji, dan Romaji lewat latihan singkat bergaya kuis. Santai, bisa diulang, dan progresmu tersimpan otomatis.</p>
+        <button class="btn" data-nav="home" id="btnStartLearning">Mulai Belajar</button>
+      </div>
+    </section>
+
+    <section id="view-select-lang" class="view">
+      <div class="section-head">
+        <span class="eyebrow" id="selectLangEyebrow">Langkah 1</span>
+        <h2 id="selectLangTitle">Mau belajar tulisan yang mana?</h2>
+        <p id="selectLangSub">Pilih salah satu untuk mulai berlatih.</p>
+      </div>
+      <div class="lang-grid">
+        <button class="lang-card" data-select-cat="hiragana">
+          <span class="jp-sample">あ</span>
+          <span class="name">Hiragana</span>
+          <span class="desc" id="descHiragana">Huruf dasar untuk kata asli Jepang.</span>
+          <span class="progress-pill" data-progress-pill="hiragana">Stage 1</span>
+        </button>
+        <button class="lang-card" data-select-cat="katakana">
+          <span class="jp-sample">ア</span>
+          <span class="name">Katakana</span>
+          <span class="desc" id="descKatakana">Untuk kata serapan & nama asing.</span>
+          <span class="progress-pill" data-progress-pill="katakana">Stage 1</span>
+        </button>
+        <button class="lang-card" data-select-cat="kanji">
+          <span class="jp-sample">漢</span>
+          <span class="name">Kanji</span>
+          <span class="desc" id="descKanji">Aksara makna dari Tiongkok kuno.</span>
+          <span class="progress-pill" data-progress-pill="kanji">Stage 1</span>
+        </button>
+        <button class="lang-card" data-select-cat="romaji">
+          <span class="jp-sample">Aa</span>
+          <span class="name">Romaji</span>
+          <span class="desc" id="descRomaji">Cara menulis bunyi Jepang pakai huruf latin.</span>
+          <span class="progress-pill" data-progress-pill="romaji">Stage 1</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="view-mode-select" class="view">
+      <button class="back-link" data-nav="home"><span id="backLinkHomeArrow">&larr;</span> <span id="backLinkHomeLabel">Ganti tulisan</span></button>
+      <div class="section-head" style="margin-bottom:20px;">
+        <span class="eyebrow" id="modeSelectEyebrow">Langkah 2</span>
+        <h2 id="modeSelectTitle">Hiragana</h2>
+        <p id="modeSelectSub">Pelajari dulu, atau langsung uji kemampuanmu?</p>
+      </div>
+      <div class="mode-cards">
+        <button class="mode-card" id="btnBasic">
+          <span class="icon-circle">📖</span>
+          <h3 id="basicTitle">Pelajari Dulu</h3>
+          <p id="basicDesc">Tutorial singkat per kelompok huruf sebelum latihan.</p>
+        </button>
+        <button class="mode-card test-mode" id="btnDirectTest">
+          <span class="icon-circle">⚡</span>
+          <h3 id="directTestTitle">Langsung Tes</h3>
+          <p id="directTestDesc">Lewati tutorial, langsung kerjakan soal acak.</p>
+        </button>
+      </div>
+      <div class="stage-picker" id="stagePicker">
+        <p class="stage-picker-points" id="stagePickerPoints">⭐ 0 poin</p>
+        <p class="stage-picker-label" id="stagePickerLabel">Atau pilih stage tertentu:</p>
+        <div class="stage-chip-row" id="stageChipRow"></div>
+      </div>
+    </section>
+
+    <section id="view-tutorial" class="view">
+      <button class="back-link" data-nav="mode-select"><span id="backLinkModeArrow">&larr;</span> <span id="backLinkModeLabel">Kembali</span></button>
+      <div class="tutorial-card">
+        <div class="tutorial-progress" id="tutorialProgress"></div>
+        <h3 id="tutorialGroupTitle">Judul Kelompok</h3>
+        <p class="group-desc" id="tutorialGroupDesc">Deskripsi kelompok huruf.</p>
+        <div id="tutorialTableWrap"></div>
+        <div class="tutorial-footer">
+          <button class="btn" id="btnTutorialNext">Lanjut &rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-test" class="view">
+      <div class="test-wrap">
+        <div class="question-card watermarked">
+          <span class="q-kicker" id="qKicker">Tebak bacaannya</span>
+          <div id="qPromptArea"></div>
+          <div id="qAnswerArea"></div>
+          <div class="hint-reveal" id="hintReveal"></div>
+          <div class="feedback-line" id="feedbackLine"></div>
+        </div>
+        <div class="test-actions" id="testActionsArea">
+          <button class="btn" id="btnCheckAnswer">Periksa</button>
+        </div>
+      </div>
+      <button class="hint-fab" id="btnHint" title="Pakai hint">💡<span class="badge" id="hintFabBadge">0</span></button>
+    </section>
+
+    <section id="view-stage-complete" class="view">
+      <div class="complete-wrap">
+        <div class="hanko">合格</div>
+        <h2 id="completeTitle">Stage 1 Selesai!</h2>
+        <p class="score-line"><span id="scoreLineLabel">Jawaban benar:</span> <b id="scoreLine">0/10</b></p>
+        <p class="score-line points-earned" id="pointsEarnedLine">+0 poin</p>
+        <p class="lock-note" id="lockNote"></p>
+        <div class="complete-actions">
+          <button class="btn ghost" id="btnRetryStage">Coba Lagi</button>
+          <button class="btn secondary" id="btnGoHomeFromComplete">Home</button>
+          <button class="btn" id="btnNextStage">Lanjut Stage &rarr;</button>
+        </div>
+      </div>
+      <footer class="tiny-note" id="autoSaveNote">Progresmu otomatis tersimpan di browser ini.</footer>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

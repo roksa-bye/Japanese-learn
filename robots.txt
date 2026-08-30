@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://roksa-bye.github.io/Japanese-learn/sitemap.xml
