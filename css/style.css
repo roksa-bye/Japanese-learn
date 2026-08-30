@@ -442,3 +442,16 @@ body.no-select input, body.no-select textarea { -webkit-user-select: text; -moz-
 
 .points-earned { color: var(--gold); font-weight: 800; font-size: 1.05rem; margin-top: -8px; }
 .lock-note { color: var(--ink-soft); font-size: 0.85rem; max-width: 320px; }
+.made-by-credit {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  opacity: 0.7;
+  z-index: 30;
+  pointer-events: none;
+  font-family: var(--font-body);
+}
